@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +28,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $role = Role::findByName('writer');
+
+        $permissions = Permission::all();
+        
+        // $role->syncPermissions($permissions);
+        // $role->revokePermissionTo($permissions);
+
+        $user = Auth::User();
+        // dd($user->givePermissionTo('edit articles'));
+        // return view('home');
     }
 }
