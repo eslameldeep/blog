@@ -34,9 +34,9 @@ class HomeController extends Controller
         $permissions = Permission::all();
         
         // $role->syncPermissions($permissions);
-        // $role->revokePermissionTo($permissions);
-
+        
         $user = Auth::User();
+        // $user->revokePermissionTo($permissions);
         // dd($user->givePermissionTo('edit articles'));
         return view('home');
     }
