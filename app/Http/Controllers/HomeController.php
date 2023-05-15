@@ -38,6 +38,6 @@ class HomeController extends Controller
 
         $user = Auth::User();
         // dd($user->givePermissionTo('edit articles'));
-        // return view('home');
+        return view('home');
     }
 }
